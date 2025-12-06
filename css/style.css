@@ -1,0 +1,324 @@
+/* ==============================================
+   1. CORE PALETTE & GLOBAL RESET
+   ============================================== */
+
+/* Custom Properties/Color Variables */
+:root {
+    --color-primary: #0A192F; /* Deep Charcoal/Navy */
+    --color-secondary: #0077B6; /* Authority Blue */
+    --color-text-light: #F0F4F8; /* Light text for dark background */
+    --color-text-dark: #333333;
+}
+
+/* Global Body and Typography Setup */
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 2.5rem; /* Large and prominent */
+    color: var(--color-secondary);
+    text-align: center;
+    padding: 60px 20px 10px;
+    font-weight: 700; /* Bold for emphasis */
+}
+
+/* ==============================================
+   2. REUSABLE COMPONENTS
+   ============================================== */
+
+/* Strategically Placed CTA Button */
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: background-color 0.3s ease;
+}
+
+.cta-button:hover {
+    background-color: #0096C7; /* Slightly brighter blue on hover */
+}
+
+/* Horizontal Rule Styling */
+hr {
+    border: none;
+    border-top: 1px solid rgba(0, 119, 182, 0.4);
+    margin: 60px 0;
+}
+
+/* Section Layout */
+.content-section {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* ==============================================
+   3. HERO/MASTHEAD SECTION
+   ============================================== */
+
+.hero-cta {
+    text-align: center;
+    padding: 20px 0 80px;
+}
+
+/* ==============================================
+   4. IMS DIFFERENTIATOR SECTION
+   ============================================== */
+
+.section-subtitle {
+    font-size: 1.25rem;
+    color: #A0B3C4; /* Light gray for contrast against dark background */
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* Pillar Card Container (3-Column Grid) */
+.pillars-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+    text-align: left;
+}
+
+/* Individual Pillar Card Style (Enterprise, Secure Look) */
+.pillar-card {
+    background-color: #0F2038; /* Slightly lighter than the body background for depth */
+    border: 1px solid var(--color-secondary); /* Authority Blue border for emphasis */
+    border-radius: 8px;
+    padding: 30px;
+    /* Existing Transitions */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    min-height: 250px;
+
+    /* --- ANIMATION SETUP (To be triggered by JS) --- */
+    opacity: 0; /* Hides element initially */
+    /* Add a class 'animate-on-scroll' in HTML and target it for staggering */
+}
+
+.pillar-card:hover {
+    transform: translateY(-5px); /* Subtle lift on hover */
+    box-shadow: 0 15px 30px rgba(0, 119, 182, 0.2); /* Blue shadow for intelligence vibe */
+}
+
+.pillar-card h3 {
+    color: var(--color-secondary); /* Authority Blue for titles */
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(0, 119, 182, 0.5); /* Underline for authority */
+    padding-bottom: 10px;
+}
+
+.pillar-card p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+/* Governance Features (List Style) */
+.governance-features {
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto 80px auto;
+}
+
+.governance-features h3 {
+    color: var(--color-text-light);
+    font-size: 1.8rem;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.governance-features ul {
+    list-style: none; /* Remove default list style */
+    padding: 0;
+}
+
+.governance-features li {
+    background-color: #0F2038;
+    margin-bottom: 20px;
+    padding: 25px;
+    border-left: 5px solid var(--color-secondary); /* Authority blue accent */
+    border-radius: 4px;
+    line-height: 1.6;
+
+    /* --- ANIMATION SETUP (To be triggered by JS) --- */
+    opacity: 0; /* Hides element initially */
+    /* Add a class 'animate-on-scroll' in HTML and target it for staggering */
+}
+
+.governance-features li strong {
+    color: var(--color-secondary);
+    font-weight: 700;
+}
+
+/* ==============================================
+   5. FOOTER & CTA STYLING
+   ============================================== */
+
+footer {
+    background-color: var(--color-primary); /* Use primary color for footer */
+    text-align: center;
+    padding: 60px 20px;
+    border-top: 5px solid var(--color-secondary);
+}
+
+footer h2 {
+    font-size: 2rem;
+    color: var(--color-secondary);
+    margin-bottom: 10px;
+}
+
+footer p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #A0B3C4;
+}
+
+/* ==============================================
+   6. SPONSORSHIP TOGGLE (Development ONLY)
+   ============================================== */
+
+/* Set to "block" to SHOW sponsorship module (Development Default) */
+#sponsorship-module {
+    display: block;
+}
+
+/* FOR CLIENT LAUNCH:
+   Uncomment the line below to completely hide the sponsorship module.
+   This ensures no client sees any mention of sponsorships.
+*/
+/* #sponsorship-module {
+   display: none !important;
+}
+*/
+
+/* Basic Styling for Sponsor Module (optional) */
+.sponsor-notice {
+    text-align: center;
+    padding: 30px;
+    margin-top: 50px;
+    border-top: 1px solid rgba(0, 119, 182, 0.3); /* Uses Authority Blue with transparency */
+    color: #777; /* Subtle text color */
+}
+
+.sponsor-logos {
+    margin-top: 15px;
+}
+.sponsor-logos a {
+    color: var(--color-secondary); /* Authority Blue */
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 0.9rem;
+}
+
+/* ==============================================
+   7. MEDIA QUERIES (RESPONSIVENESS) 📱
+   ============================================== */
+
+/* --- Tablet and Smaller Desktops (Max Width: 992px) --- */
+@media (max-width: 992px) {
+    /* Adjust padding for overall content */
+    .content-section {
+        padding: 60px 30px;
+    }
+
+    /* Reduce spacing and font sizes slightly */
+    h1 {
+        font-size: 2.2rem;
+        padding-top: 40px;
+    }
+
+    .section-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+    }
+
+    /* Ensure pillar cards can stack if needed, but default to smaller size */
+    .pillars-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    /* Slightly smaller pillar cards */
+    .pillar-card {
+        padding: 25px;
+        min-height: auto;
+    }
+}
+
+/* --- Mobile Devices (Max Width: 600px) --- */
+@media (max-width: 600px) {
+    /* Tighten up all vertical spacing */
+    .content-section {
+        padding: 40px 20px;
+    }
+
+    /* Make CTA button full width and increase font size for touch */
+    .cta-button {
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+        padding: 18px 20px;
+    }
+
+    .hero-cta {
+        padding-bottom: 60px;
+    }
+
+    /* Smaller, more readable titles */
+    h1 {
+        font-size: 1.8rem;
+        padding: 30px 10px 10px;
+    }
+
+    footer h2 {
+        font-size: 1.5rem;
+    }
+
+    /* Force the pillar cards to stack vertically for easy scrolling */
+    .pillars-container {
+        grid-template-columns: 1fr;
+    }
+
+    /* Remove horizontal padding from governance list items */
+    .governance-features li {
+        padding: 20px;
+    }
+}
+
+/* ==============================================
+   8. ANIMATION KEYFRAMES & UTILITY CLASSES 🌠
+   ============================================== */
+
+/* Keyframe for subtle slide-up and fade-in effect */
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px); /* Start 20px below final position */
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0); /* End at final position */
+    }
+}
+
+/* Utility class applied by JavaScript when element is in view */
+.animate-in {
+    /* Set the animation duration and easing */
+    animation: slideUpFadeIn 0.8s ease forwards;
+    /* The 'forwards' property is crucial to keep the final state (opacity: 1) */
+}
