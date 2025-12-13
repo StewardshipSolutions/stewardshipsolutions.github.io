@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+# Disallow sensitive directories
+Disallow: /website info.txt
+
+# Sitemap location
+Sitemap: https://stewardshipsolutions.github.io/sitemap.xml

@@ -1,0 +1,542 @@
+/* ==============================================
+   STEWARDSHIP SOLUTIONS - PRODUCTION CSS
+   Enterprise AI Consulting Website
+   ============================================== */
+
+/* ==============================================
+   1. CORE PALETTE & GLOBAL RESET
+   ============================================== */
+
+:root {
+    --color-primary: #0A192F;
+    --color-secondary: #0077B6;
+    --color-accent: #0096C7;
+    --color-text-light: #F0F4F8;
+    --color-text-muted: #A0B3C4;
+    --color-text-dark: #333333;
+    --color-card-bg: #0F2038;
+    --color-error: #ff4444;
+    --color-success: #00C851;
+    --transition-speed: 0.3s;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    margin: 0;
+    padding: 0;
+    line-height: 1.6;
+}
+
+/* ==============================================
+   2. ACCESSIBILITY
+   ============================================== */
+
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 0;
+    background: var(--color-secondary);
+    color: white;
+    padding: 8px 16px;
+    text-decoration: none;
+    z-index: 100;
+    border-radius: 0 0 4px 0;
+}
+
+.skip-link:focus {
+    top: 0;
+}
+
+/* Focus styles for keyboard navigation */
+*:focus {
+    outline: 2px solid var(--color-secondary);
+    outline-offset: 2px;
+}
+
+button:focus,
+a:focus {
+    outline: 2px solid var(--color-accent);
+}
+
+/* ==============================================
+   3. TYPOGRAPHY
+   ============================================== */
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--color-secondary);
+    text-align: center;
+    padding: 20px 20px 10px;
+    font-weight: 700;
+    margin: 0;
+    line-height: 1.2;
+}
+
+h2 {
+    font-size: 2rem;
+    color: var(--color-secondary);
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: 700;
+}
+
+h3 {
+    font-size: 1.5rem;
+    color: var(--color-secondary);
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+p {
+    margin-bottom: 1rem;
+}
+
+a {
+    color: var(--color-secondary);
+    text-decoration: none;
+    transition: color var(--transition-speed) ease;
+}
+
+a:hover {
+    color: var(--color-accent);
+}
+
+/* ==============================================
+   4. HEADER
+   ============================================== */
+
+header {
+    text-align: center;
+    padding: 40px 20px 20px;
+    border-bottom: 3px solid var(--color-secondary);
+}
+
+.logo-container {
+    margin-bottom: 20px;
+}
+
+.logo {
+    max-width: 200px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 119, 182, 0.3);
+}
+
+.tagline {
+    font-size: 1.2rem;
+    color: var(--color-text-muted);
+    margin-top: 10px;
+    font-style: italic;
+}
+
+/* ==============================================
+   5. BUTTONS & CTAs
+   ============================================== */
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    padding: 15px 30px;
+    text-decoration: none;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 4px;
+    transition: all var(--transition-speed) ease;
+    border: 2px solid var(--color-secondary);
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.cta-button:hover {
+    background-color: var(--color-accent);
+    border-color: var(--color-accent);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 119, 182, 0.4);
+}
+
+.cta-button:active {
+    transform: translateY(0);
+}
+
+/* ==============================================
+   6. HERO SECTION
+   ============================================== */
+
+.hero-cta {
+    text-align: center;
+    padding: 40px 20px 80px;
+    background: linear-gradient(180deg, var(--color-primary) 0%, var(--color-card-bg) 100%);
+}
+
+/* ==============================================
+   7. SECTION LAYOUT
+   ============================================== */
+
+.content-section {
+    padding: 80px 40px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.section-subtitle {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    margin-bottom: 60px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid rgba(0, 119, 182, 0.4);
+    margin: 60px auto;
+    max-width: 800px;
+}
+
+/* ==============================================
+   8. PILLAR CARDS (Services/Why Us)
+   ============================================== */
+
+.pillars-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    margin-bottom: 50px;
+    text-align: left;
+}
+
+.pillar-card {
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-secondary);
+    border-radius: 8px;
+    padding: 30px;
+    transition: transform var(--transition-speed) ease, 
+                box-shadow var(--transition-speed) ease;
+    min-height: 250px;
+    opacity: 0;
+}
+
+.pillar-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 119, 182, 0.3);
+    border-color: var(--color-accent);
+}
+
+.pillar-card h3 {
+    color: var(--color-secondary);
+    font-size: 1.5rem;
+    margin-top: 0;
+    margin-bottom: 15px;
+    border-bottom: 2px solid rgba(0, 119, 182, 0.5);
+    padding-bottom: 10px;
+}
+
+.pillar-card p {
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+/* ==============================================
+   9. GOVERNANCE FEATURES (Results List)
+   ============================================== */
+
+.governance-features {
+    text-align: left;
+    max-width: 900px;
+    margin: 0 auto 80px auto;
+}
+
+.governance-features ul {
+    list-style: none;
+    padding: 0;
+}
+
+.governance-features li {
+    background-color: var(--color-card-bg);
+    margin-bottom: 20px;
+    padding: 25px;
+    border-left: 5px solid var(--color-secondary);
+    border-radius: 4px;
+    line-height: 1.6;
+    opacity: 0;
+    transition: all var(--transition-speed) ease;
+}
+
+.governance-features li:hover {
+    border-left-width: 8px;
+    padding-left: 28px;
+    box-shadow: 0 5px 15px rgba(0, 119, 182, 0.2);
+}
+
+.governance-features li strong {
+    color: var(--color-secondary);
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+/* ==============================================
+   10. CONTACT FORM
+   ============================================== */
+
+#contact-form {
+    max-width: 600px;
+    margin: 40px auto;
+    text-align: left;
+}
+
+.form-group {
+    margin-bottom: 25px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 8px;
+    color: var(--color-text-light);
+    font-weight: 500;
+}
+
+.required {
+    color: var(--color-error);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 2px solid var(--color-secondary);
+    border-radius: 4px;
+    background-color: var(--color-card-bg);
+    color: var(--color-text-light);
+    font-family: 'Roboto', sans-serif;
+    font-size: 1rem;
+    transition: border-color var(--transition-speed) ease;
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--color-accent);
+    outline: none;
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+.submit-button {
+    width: 100%;
+    margin-top: 20px;
+    font-size: 1.1rem;
+}
+
+.contact-info {
+    text-align: center;
+    margin-top: 60px;
+    padding: 30px;
+    background-color: var(--color-card-bg);
+    border-radius: 8px;
+    border: 1px solid rgba(0, 119, 182, 0.3);
+}
+
+.contact-info p {
+    margin: 10px 0;
+}
+
+.contact-info a {
+    color: var(--color-accent);
+    font-weight: 500;
+}
+
+/* ==============================================
+   11. FOOTER
+   ============================================== */
+
+footer {
+    background-color: var(--color-primary);
+    text-align: center;
+    padding: 60px 20px;
+    border-top: 5px solid var(--color-secondary);
+    margin-top: 80px;
+}
+
+.footer-content h3 {
+    color: var(--color-secondary);
+    font-size: 1.8rem;
+    margin-bottom: 10px;
+}
+
+.footer-content p {
+    color: var(--color-text-muted);
+    margin: 10px 0;
+}
+
+.social-links {
+    margin: 30px 0;
+}
+
+.social-links a {
+    display: inline-block;
+    margin: 0 15px;
+    padding: 10px 20px;
+    background-color: var(--color-card-bg);
+    border: 1px solid var(--color-secondary);
+    border-radius: 4px;
+    color: var(--color-secondary);
+    font-weight: 500;
+    transition: all var(--transition-speed) ease;
+}
+
+.social-links a:hover {
+    background-color: var(--color-secondary);
+    color: var(--color-text-light);
+    transform: translateY(-2px);
+}
+
+.footer-contact a {
+    color: var(--color-accent);
+    margin: 0 10px;
+}
+
+.copyright {
+    margin-top: 30px;
+    font-size: 0.9rem;
+    color: #777;
+}
+
+/* ==============================================
+   12. ANIMATIONS
+   ============================================== */
+
+@keyframes slideUpFadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-in {
+    animation: slideUpFadeIn 0.8s ease forwards;
+}
+
+/* ==============================================
+   13. RESPONSIVE DESIGN
+   ============================================== */
+
+/* Tablet (992px and below) */
+@media (max-width: 992px) {
+    .content-section {
+        padding: 60px 30px;
+    }
+
+    h1 {
+        font-size: 2rem;
+        padding-top: 30px;
+    }
+
+    h2 {
+        font-size: 1.8rem;
+    }
+
+    .section-subtitle {
+        font-size: 1.1rem;
+        margin-bottom: 40px;
+    }
+
+    .pillars-container {
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 20px;
+    }
+
+    .pillar-card {
+        padding: 25px;
+        min-height: auto;
+    }
+
+    .logo {
+        max-width: 150px;
+    }
+}
+
+/* Mobile (600px and below) */
+@media (max-width: 600px) {
+    .content-section {
+        padding: 40px 20px;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+        padding: 20px 10px 10px;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    .tagline {
+        font-size: 1rem;
+    }
+
+    .cta-button {
+        display: block;
+        width: 90%;
+        margin: 0 auto;
+        padding: 18px 20px;
+    }
+
+    .hero-cta {
+        padding: 30px 20px 60px;
+    }
+
+    .pillars-container {
+        grid-template-columns: 1fr;
+    }
+
+    .governance-features li {
+        padding: 20px;
+    }
+
+    .social-links a {
+        display: block;
+        margin: 10px auto;
+        max-width: 200px;
+    }
+
+    .logo {
+        max-width: 120px;
+    }
+}
+
+/* ==============================================
+   14. PRINT STYLES
+   ============================================== */
+
+@media print {
+    body {
+        background-color: white;
+        color: black;
+    }
+
+    header,
+    footer,
+    .cta-button,
+    #contact-form {
+        display: none;
+    }
+
+    .content-section {
+        page-break-inside: avoid;
+    }
+}
