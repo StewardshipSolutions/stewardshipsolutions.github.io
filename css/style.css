@@ -197,6 +197,7 @@ body {
     text-decoration: none;
     z-index: 100;
     border-radius: 0 0 4px 0;
+    display: none;
 }
 
 .skip-link:focus {
@@ -229,6 +230,8 @@ body {
 .logo-container {
     margin-bottom: 40px;
     animation: logoFloat 3s ease-in-out infinite;
+    display: flex;
+    justify-content: center;
 }
 
 .hero-logo {
@@ -432,7 +435,8 @@ body {
     position: relative;
     overflow: hidden;
     backdrop-filter: blur(10px);
-    opacity: 0;
+    opacity: 1;
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .pillar-card::before {
@@ -520,7 +524,8 @@ body {
     background: var(--gradient-card);
     border: 2px solid var(--color-card-border);
     transition: all var(--transition-speed) ease;
-    opacity: 0;
+    opacity: 1;
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .stat-item:hover {
@@ -564,7 +569,8 @@ body {
     padding: 35px;
     text-align: center;
     transition: all var(--transition-speed) ease;
-    opacity: 0;
+    opacity: 1;
+    animation: fadeInUp 0.8s ease-out forwards;
 }
 
 .result-card:hover {
