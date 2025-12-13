@@ -1,0 +1,100 @@
+Generate test suite
+"Create pytest test suite for ModelRegistry class covering all CRUD operations, edge cases, and error conditions. Include fixtures for database setup."
+
+ 1.1.4 Sample Data Population
+
+**File**: `scripts/populate_model_registry.py`
+
+```python
+# Sample models to populate registry
+SAMPLE_MODELS = [
+    {
+        "model_id": "gpt-4-turbo",
+        "vendor_id": "OpenAI",
+        "capability_tier": "Tier_3",
+        "context_window": 128000,
+        "cost_in_per_mil": 0.01,
+        "cost_out_per_mil": 0.03,
+        "function_call_support": True
+    },
+    {
+        "model_id": "claude-3-opus",
+        "vendor_id": "Anthropic",
+        "capability_tier": "Tier_3",
+        "context_window": 200000,
+        "cost_in_per_mil": 0.015,
+        "cost_out_per_mil": 0.075,
+        "function_call_support": True
+    },
+    {
+        "model_id": "claude-3-sonnet",
+        "vendor_id": "Anthropic",
+        "capability_tier": "Tier_2",
+        "context_window": 200000,
+        "cost_in_per_mil": 0.003,
+        "cost_out_per_mil": 0.015,
+        "function_call_support": True
+    },
+    {
+        "model_id": "gpt-3.5-turbo",
+        "vendor_id": "OpenAI",
+        "capability_tier": "Tier_1",
+        "context_window": 16385,
+        "cost_in_per_mil": 0.0005,
+        "cost_out_per_mil": 0.0015,
+        "function_call_support": True
+    },
+    # TODO: Add more models (Gemini, Mistral, local models)
+]
+```
+
+**Tasks**:
+- [ ] Create population script with sample data
+- [ ] Add at least 10 models covering all 3 tiers
+- [ ] Include both cloud and potential local models
+- [ ] Run script to populate dev database: `python scripts/populate_model_registry.py`
+
+---
+
+### Testing & Validation
+
+#### Unit Tests
+**File**: `tests/test_model_registry.py`
+
+- [ ] Test `register_model()` success case
+- [ ] Test `register_model()` duplicate ModelID error
+- [ ] Test `get_model()` success case
+- [ ] Test `get_model()` not found case
+- [ ] Test `filter_models()` with single filter
+- [ ] Test `filter_models()` with multiple filters
+- [ ] Test `filter_models()` returns empty list when no matches
+- [ ] Test `update_model()` success case
+- [ ] Test `update_model()` prevents immutable field updates
+- [ ] Test `deactivate_model()` soft delete
+
+#### Integration Tests
+- [ ] Test full API workflow: register → get → filter → update → deactivate
+- [ ] Test concurrent reads (100 simultaneous GET requests)
+- [ ] Test cache invalidation after update
+- [ ] Validate API authentication works
+
+#### Load Testing
+- [ ] Simulate 1000 reads/minute (should be <50ms P95 latency)
+- [ ] Test with 100 models in registry
+
+---
+
+### Security Checklist
+
+- [ ] ⚠️ Database connection string in `.env` file
+  ```env
+  DB_CONNECTION_STRING=postgresql://user:password@localhost:5432/ims_db
+  REDIS_URL=redis://localhost:6379/0
+  ADMIN_API_KEY=your-secret-admin-key-here
+  ```
+- [ ] ⚠️ Never log sensitive credentials
+- [ ] ⚠️ Use parameterized queries (prevent SQL injection)
+- [ ] ⚠️ Implement API rate limiting (100 requests/minute)
+- [ ] ⚠️ Validate all input fields (prevent malicious data)
+
+---
